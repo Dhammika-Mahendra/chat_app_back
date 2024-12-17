@@ -1,6 +1,7 @@
 const express= require("express");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth.routes.js");
+const connectToMongoDB = require("./Config/MongoDBconfig.js");
 
 const PORT = process.env.PORT || 5000;
 dotenv.config();
@@ -16,5 +17,6 @@ app.get("/", (req, res) => {
 
 
 app.listen(PORT, () => {
+	connectToMongoDB();
 	console.log(`Server Running on port ${PORT}`);
 });
