@@ -38,8 +38,8 @@ const signupUser = async (req, res) => {
 const loginUser = async (req, res) => {
     
   try {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username });
+    const { userName, password } = req.body;
+    const user = await User.findOne({ userName });
 
     let isPasswordCorrect = password === user.password;
     if (!user || !isPasswordCorrect) {
